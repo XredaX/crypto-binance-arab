@@ -1,1 +1,1 @@
-worker: python copymsg.py
+worker: python test.py.py
