@@ -27,9 +27,12 @@ async def send_welcome(event):
 
 @bot.on(events.CallbackQuery)
 async def handler(event):
-    if event.data == b'show':
-        dataaccS = user.findacc(collection='sig', message_id=event.message_id)
-        await event.answer(dataaccS[0]['msg'], alert=True)
+    try:
+        if event.data == b'show':
+            dataaccS = user.findacc(collection='sig', message_id=event.message_id)
+            await event.answer(dataaccS[0]['msg'], alert=True)
+        except :
+            pass
 
 bot.start()
 bot.run_until_disconnected()
